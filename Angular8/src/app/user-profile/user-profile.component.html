@@ -1,0 +1,33 @@
+<section id="userProfile" class="container">
+  <div class="form-wrap">
+    <h1>Apply for the position</h1>
+    <p>Your contact email will be shared with the HR Department </p>
+   
+    <form action="/userProfile" method="POST">
+      <div class="input-group">
+        <label for="name">Candidate Name</label>
+        <input type="text" name="name" id="name" class="input-box" 
+          maxlength="100" value={{name}}>
+      </div>
+      <div class="input-group">
+        <label for="age">Age</label>
+        <input type="text" name="agee" id="age" class="input-box"
+        maxlength="100" value={{technologies}}>
+      </div>
+      <div class="input-group">
+        <label for="experience">Experience</label>
+        <input type="number" name="experience" id="experience" class="input-box" value={{experience}}>
+      </div>
+      <div class="input-group">
+        <label for="qualification">Qualification</label>
+        <textarea name="qualification" id="qualification" class="input-box"
+          rows="10">{{qualification}}</textarea>
+      </div>
+      <div class="input-group">
+        <label for="contact">Contact</label>
+        <input type="email" name="contact" id="contact" class="input-box"  value={{contact_email}}>
+      </div>
+      <input type="submit" value="Apply" class="btn btn-reverse">
+    </form>
+  </div>
+</section>
