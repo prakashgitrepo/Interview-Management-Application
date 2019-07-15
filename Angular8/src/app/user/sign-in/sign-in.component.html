@@ -16,8 +16,12 @@
     <label class="validation-message">Minimum 4 characters.</label>
   </div>
   <input type="submit" value="Sign In">
-</form>
-<!-- Error message -->
+     <!-- Success message -->
+<div class="success" *ngIf="showSucessMessage">
+    Saved successfully
+  </div>
+  <!-- Error message -->
 <div class="alert" *ngIf="serverErrorMessages">
-  {{serverErrorMessages}}
-</div>
+    {{serverErrorMessages}}
+  </div>
+</form>

@@ -26,7 +26,7 @@ export class SignInComponent implements OnInit {
     this.userService.login(form.value).subscribe(
       res => {
         
-        this.router.navigateByUrl('/userprofile');
+        this.router.navigateByUrl('/userProfile');
       },
       err => {
         this.serverErrorMessages = err.error.message;

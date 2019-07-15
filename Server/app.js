@@ -1,22 +1,24 @@
 require('./config/config1');
 require('./models/db');
+require('./config/passportConfig');
 
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const passport = require('passport');
 
-const rtsIndex = require('./controllers/user.controller');
+const rtsIndex = require('./routes/index.router');
 
 
 const app = express();
-app.engine('handlebars',exphbs  ({defaultLayout:main}));
-app.set('view engine','handlebars');    
+
 
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/api', rtsIndex);
-app.use('/hrdata',require('./routes/index.router'))
+app.use(passport.initialize());
+
 app.set('view engine', 'jade')
 
 // error handler

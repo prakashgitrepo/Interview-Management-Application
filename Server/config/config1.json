@@ -2,12 +2,16 @@
     "development": {
         "PORT": 3000,
         "MYSQL_URI": "jdbc:mysql://localhost:3306/imsdb",
+        "JWT_SECRET":"SECRET#123",
+        "JWT_EXP":"2m",
         "operatorAliases": false
 
     },
     "production": {
         "PORT": 80,
         "MYSQL_URI": "jdbc:mysql://xxxx/dbbb",
+        "JWT_SECRET":"SECRET#123",
+        "JWT_EXP":"2m",
         "operatorAliases": false
 
     }

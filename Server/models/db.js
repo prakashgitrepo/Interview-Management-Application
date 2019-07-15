@@ -12,4 +12,4 @@ mysqlConnection.connect(process.env.NODE_ENV,(err)=>{
     else { console.log('Error in DB connection : ' + JSON.stringify(err, undefined, 2)); }
 });
 
-require('./user.model');
+module.exports=mysqlConnection;

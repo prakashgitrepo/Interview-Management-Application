@@ -1,23 +1,35 @@
-<section id="hradd" class="container">
-    <div class="form-wrap">
-      <h1>Add the job</h1>
-      <p>Your contact email will be shared with registered users to apply </p>
-      
-      <form action="/hradd" method="POST">
-        <div class="input-group">
-          <label for="jobName">Job Name:</label>
-          <input type="text" name="jobName" id="jobName" class="input-box" 
-            maxlength="100" value={{jobName}}>
-        </div>
+
+  
+  
+  <section id="hradd" class="container">
+      <div class="form-wrap">
+        <h1>Add the job</h1>
+        <p>Your contact email will be shared with registered users to apply </p>
         
-        
-        <div class="input-group">
-          <label for="description">Gig Description</label>
-          <textarea name="description" id="description" class="input-box" placeholder="Describe the details of the gig"
-            rows="10">{{description}}</textarea>
-        </div>
-        
-        <input type="submit" value="apply" class="btn btn-reverse">
-      </form>
-    </div>
-  </section>
+        <form action="/hradd" method="POST">
+          <div class="input-group">
+            <label for="jobName">Job Name:</label>
+            <input type="text" name="jobName" id="jobName" class="input-box" 
+              maxlength="100" value={{jobName}}>
+          </div>
+          
+          
+          <div class="input-group">
+            <label for="description">Description</label>
+            <textarea name="description" id="description" class="input-box" placeholder="Describe the details of the gig"
+              rows="10">{{description}}</textarea>
+          </div>
+          
+          <input type="submit" value="apply" class="btn btn-reverse">
+        </form>
+      </div>
+    </section>
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db =require('../database/sequelize.connection');
 
-const hrdata =db.define('data',{
+module.exports = sequelize.define('data',{
     jobName:{
         type:Sequelize.STRING
     },

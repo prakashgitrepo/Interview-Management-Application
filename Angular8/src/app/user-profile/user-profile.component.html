@@ -1,33 +1,61 @@
-<section id="userProfile" class="container">
-  <div class="form-wrap">
-    <h1>Apply for the position</h1>
-    <p>Your contact email will be shared with the HR Department </p>
+<form #UserProfile="ngForm" form action="/userProfile" method="GET" (ngSubmit)="UserProfile.valid && onSubmit(UserProfile)">
+<div class="row">
    
-    <form action="/userProfile" method="POST">
-      <div class="input-group">
-        <label for="name">Candidate Name</label>
-        <input type="text" name="name" id="name" class="input-box" 
-          maxlength="100" value={{name}}>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="name">Candidate Name    </label> 
+          <input id="name" #name="ngModel" [(ngModel)]="CandiateService.selectedCandidate.name" type="text" class="validate" style="width: 300px; height: 15px;" >
+            
+        </div>
+        <div class="input-field col s6">  <label for="age">  Age    </label>
+          <input id="age" #age="ngModel" [(ngModel)]="CandiateService.selectedCandidate.age"  type="text" class="validate" style="width: 300px; height: 15px;">
+              
+        </div>
       </div>
-      <div class="input-group">
-        <label for="age">Age</label>
-        <input type="text" name="agee" id="age" class="input-box"
-        maxlength="100" value={{technologies}}>
+     
+      <div class="row">
+          <div class="input-field col s12"> <label for="experience">Experience</label>
+            <input id="experience" #experience="ngModel" [(ngModel)]="CandiateService.selectedCandidate.experience"  type="text" class="validate" style="width: 300px; height: 15px;">
+          
+          </div>
+        </div>
+      <div class="row">
+         
+        <div class="input-field col s12"><label for="qualification">Qualification</label>
+          <input id="qualification" #qualification="ngModel" [(ngModel)]="CandiateService.selectedCandidate.qualification"  type="text" class="validate" style="width: 300px; height: 15px;">
+         
+        </div>
       </div>
-      <div class="input-group">
-        <label for="experience">Experience</label>
-        <input type="number" name="experience" id="experience" class="input-box" value={{experience}}>
+      <div class="row">
+        <div class="input-field col s12"> <label for="email">Email</label>
+          <input id="email" type="email" class="validate" >
+          
+        </div>
       </div>
-      <div class="input-group">
-        <label for="qualification">Qualification</label>
-        <textarea name="qualification" id="qualification" class="input-box"
-          rows="10">{{qualification}}</textarea>
+      <div class="row">
+        
       </div>
-      <div class="input-group">
-        <label for="contact">Contact</label>
-        <input type="email" name="contact" id="contact" class="input-box"  value={{contact_email}}>
-      </div>
-      <input type="submit" value="Apply" class="btn btn-reverse">
-    </form>
+      <input type="submit" value="Apply" style="background-color:black;color:white;">
+  
   </div>
-</section>
+  <div class="success" *ngIf="showSucessMessage">
+      Applied successfully
+    </div>
+    
+    <!-- Error message -->
+    <div class="alert" *ngIf="serverErrorMessages">
+      {{serverErrorMessages}}
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+

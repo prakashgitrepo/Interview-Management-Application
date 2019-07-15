@@ -3,6 +3,13 @@ const express = require('express');
 const router = express.Router();
 const hrdata = require('../models/hr.model');
 const candidate = require('../models/candiatate.model')
+const ctrlUser = require('../controllers/user.controller');
+
+router.post('/register', ctrlUser.register);
+router.post('/authenticate', ctrlUser.authenticate);
+router.post('/userProfile', ctrlUser.userProfile);
+router.post('/hradd', ctrlUser.hradd);
+
 
 router.post('/hradd', (req, res) => {
         let { jobName, description } = req.body;
@@ -33,48 +40,5 @@ router.post('/hradd', (req, res) => {
         }
       });
 
-      router.post('/userProfile', (req, res) => {
-        let { name, age,experience,qualification,contact } = req.body;
-        let errors = [];
-       // Validate Fields
-        if(!name) {
-          errors.push({ text: 'Please add the Name' });
-        }
-        
-        if(!age) {
-          errors.push({ text: 'Please add the age' });
-        }
-        if(!experience) {
-            errors.push({ text: 'Please add the experience' });
-          }
-          if(!qualification) {
-            errors.push({ text: 'Please add the qualification' });
-          }
-          if(!contact) {
-            errors.push({ text: 'Please add the contact details' });
-          }
-         // Check for errors
-        if(errors.length > 0) {
-          res.render('add', {
-            errors,
-            name,
-            age,
-            experience,  
-            qualification, 
-            contact
-          });
-        } else {
-          // Insert into table
-          candidate.create({
-            name,
-            age,
-            experience,  
-            qualification, 
-            contact
-          })
-            .then(hrdatas => res.redirect('/'))
-            .catch(err => console.log(err));
-        }
-      });
-
+    
 module.exports = router;
