@@ -3,7 +3,7 @@ require('./models/db');
 require('./config/passportConfig');
 
 const express = require('express');
-const exphbs = require('express-handlebars');
+
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
@@ -19,7 +19,7 @@ app.use(cors());
 app.use('/api', rtsIndex);
 app.use(passport.initialize());
 
-app.set('view engine', 'jade')
+
 
 // error handler
 app.use((err, req, res) => {
