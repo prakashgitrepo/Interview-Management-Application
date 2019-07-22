@@ -1,33 +1,29 @@
-
-  
-  
-  <section id="hradd" class="container">
-      <div class="form-wrap">
-        <h1>Add the job</h1>
-        <p>Your contact email will be shared with registered users to apply </p>
-        
-        <form action="/hradd" method="POST">
-          <div class="input-group">
-            <label for="jobName">Job Name:</label>
-            <input type="text" name="jobName" id="jobName" class="input-box" 
-              maxlength="100" value={{jobName}}>
+<form #hradd="ngForm" form action="/hradd" method="GET" (ngSubmit)="hradd.valid && onSubmit(hradd)">
+  <div class="row">
+     
+        <div class="row">
+          <div class="input-field col s6">
+            <label for="jobName">Job Name    </label> 
+            <input id="jobName" #jobName="ngModel" [(ngModel)]="HrService.selectedHR.jobName" type="text" class="validate" style="width: 300px; height: 15px;" >
+              
           </div>
-          
-          
-          <div class="input-group">
-            <label for="description">Description</label>
-            <textarea name="description" id="description" class="input-box" placeholder="Describe the details of the gig"
-              rows="10">{{description}}</textarea>
+          <div class="input-field col s6">  <label for="description">  Description   </label>
+            <input id="description" #description="ngModel" [(ngModel)]="HrService.selectedHR.description"  type="text" class="validate" style="width: 300px; height: 15px;">
+                
           </div>
-          
-          <input type="submit" value="apply" class="btn btn-reverse">
-        </form>
+        </div>
+        <input type="submit" value="Apply" style="background-color:black;color:white;">
+    
+    </div>
+    <div class="success" *ngIf="showSucessMessage">
+        Applied successfully
       </div>
-    </section>
-  
-  
-  
-  
+      
+      <!-- Error message -->
+      <div class="alert" *ngIf="serverErrorMessages">
+        {{serverErrorMessages}}
+      </div>
+  </form>
   
   
   
