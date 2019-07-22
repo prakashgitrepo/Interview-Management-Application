@@ -1,6 +1,6 @@
 const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
-const mysql = require('mysql2');
+
 
 var User = require('../models/user.model');
 
